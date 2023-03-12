@@ -1,2 +1,4 @@
 # youtube-downloader
-simple youtube video downloader
+This script is a Python implementation of a YouTube audio downloader, utilizing the PyTube library to access YouTube content and download the highest quality audio stream available. The script prompts the user to provide a destination folder path for the output file, and saves the downloaded file in MP3 format to the specified folder.
+
+It is worth noting that as of recent changes to YouTube's terms of service and API, many popular YouTube downloader tools have ceased to function reliably or have been taken down entirely. As such, custom scripts such as this one may provide a viable alternative for those seeking to download YouTube audio content. However, it is important to exercise caution and ensure that any content downloaded is done so in accordance with YouTube's terms of service and applicable laws and regulations.
