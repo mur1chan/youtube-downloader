@@ -14,7 +14,7 @@ while True:
         # ask user for the output path choice
         choice = int(input("standard path (1) custom path (2): "))
         if choice == 1:
-            output_path = '/Users/arschbohrer/Desktop/peep'
+            output_path = '' # enter here your standard paths
         elif choice == 2:
             destination = input('DESTINATION PATH: ')
             output_path = destination.replace("\\", "/").replace("C:", "")
