@@ -1,17 +1,35 @@
 from pytube import YouTube
 import os
 
-yt = YouTube(input('URL: '))
-video = yt.streams.filter(only_audio=True).last()
+# get the YouTube video URL from user input
+url = input('URL: ')
 
-destination = input('DESTINATION PATH: ')
-output = destination.replace("\\", "/")
-output = destination.replace("C:", "")
+# create a YouTube object and get the audio stream
+yt = YouTube(url)
+audio_stream = yt.streams.filter(only_audio=True).last()
 
-out_file = video.download(output_path=output)
+# loop until a valid output path choice is entered
+while True:
+    try:
+        # ask user for the output path choice
+        choice = int(input("standard path (1) custom path (2): "))
+        if choice == 1:
+            output_path = '/Users/arschbohrer/Desktop/peep'
+        elif choice == 2:
+            destination = input('DESTINATION PATH: ')
+            output_path = destination.replace("\\", "/").replace("C:", "")
+        else:
+            raise ValueError
+        break
+    except ValueError:
+        print("Invalid input. Please enter 1 or 2.")
 
-base, ext = os.path.splitext(out_file)
+# download the audio stream to the chosen output path
+output_file = audio_stream.download(output_path=output_path)
+
+# rename the downloaded audio file to a .mp3 file
+base, ext = os.path.splitext(output_file)
 new_file = base + '.mp3'
-os.rename(out_file, new_file)
+os.rename(output_file, new_file)
 
 print(yt.title + " has been successfully downloaded.")
